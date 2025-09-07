@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML Master Reference — সব কিছু শিখো (Copyable)</title>
+  <meta name="description" content="Complete HTML reference in Bengali — tags, attributes, examples, demos and copy buttons.">
+  <style>
+    :root{
+      --bg:#071225; --panel:#0f2130; --accent:#ffd166; --text:#e6eef6; --muted:#9fb0c8;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, Roboto, Arial, sans-serif;margin:18px;background:linear-gradient(180deg,var(--bg),#031026);color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffb86b);display:grid;place-items:center;color:#04111a;font-weight:900}
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin:4px 0 12px 0}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    nav button{background:rgba(255,255,255,0.02);border:0;padding:8px 12px;border-radius:8px;color:var(--text);cursor:pointer}
+    section{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:14px;border-radius:12px;margin-bottom:12px;border:1px solid rgba(255,255,255,0.03)}
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:12px}
+    @media(max-width:920px){.grid{grid-template-columns:1fr}}
+    .live{padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    .code-box{position:relative;background:#021426;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    .code-box pre{white-space:pre-wrap;overflow-x:auto;color:#eaf2ff;margin:0;font-size:13px}
+    .copy-btn{position:absolute;top:10px;right:10px;background:var(--accent);border:0;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:700;color:#04111a}
+    small.note{display:block;color:var(--muted);margin-top:8px}
+    .tag{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-weight:700}
+    footer{color:var(--muted);font-size:13px;margin-top:12px}
+    code.inline{background:rgba(255,255,255,0.03);padding:2px 6px;border-radius:6px;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">HTML</div>
+      <div>
+        <h1>HTML Master Reference — সব কিছু শিখো</h1>
+        <p class="lead">এখানে HTML-এর প্রধান সকল টপিক, অ্যাট্রিবিউট ও ছোট ডেমো আছে — Copy বাটন ক্লিক করে কোড কপি করে নিজে চেষ্টা করো।</p>
+      </div>
+    </header>
+
+    <nav>
+      <button onclick="scrollToId('basic')">Basic</button>
+      <button onclick="scrollToId('text')">Text</button>
+      <button onclick="scrollToId('media')">Media</button>
+      <button onclick="scrollToId('forms')">Forms</button>
+      <button onclick="scrollToId('embed')">Embedding</button>
+      <button onclick="scrollToId('interactive')">Interactive</button>
+      <button onclick="scrollToId('table')">Table</button>
+      <button onclick="scrollToId('others')">Others</button>
+    </nav>
+
+    <!-- BASIC -->
+    <section id="basic">
+      <h2>Basic Structure </h2>
+      <div class="grid">
+        <div class="live">
+          <strong>HTML</strong>
+          <div style="margin-top:8px;color:var(--muted)">
+            DOCTYPE, html[lang], head(meta,title,link), এবং body — এগুলো অবশ্যই থাকবে। head-এ script/style/meta যায়।
+          </div>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="bn"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;meta name="description" content="একটি নমুনা পেজ"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;&lt;h1&gt;হ্যালো&lt;/h1&gt;&lt;/header&gt;
+    &lt;main&gt;&lt;p&gt;কনটেন্ট...&lt;/p&gt;&lt;/main&gt;
+    &lt;footer&gt;&lt;small&gt;Footer&lt;/small&gt;&lt;/footer&gt;
+    &lt;script src="app.js" defer&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT -->
+    <section id="text">
+      <h2>Text Content (হেডিং, প্যারাগ্রাফ, ইনলাইন ট্যাগ)</h2>
+      <div class="grid">
+        <div class="live">
+          <h3>হেডিং, প্যারা, emphasis</h3>
+          <p>হেডিং: <code class="inline">&lt;h1&gt;…&lt;/h1&gt;</code>. পারা: <code class="inline">&lt;p&gt;</code>. গুরুত্বের জন্য <code class="inline">&lt;strong&gt;</code>, italic জন্য <code class="inline">&lt;em&gt;</code>.</p>
+
+          <h3>Lists & code</h3>
+          <ul>
+            <li>Ordered: <code class="inline">&lt;ol&gt;</code></li>
+            <li>Unordered: <code class="inline">&lt;ul&gt;</code></li>
+          </ul>
+          <pre style="background:rgba(255,255,255,0.02);padding:8px;border-radius:6px">Sample: console.log('hello')</pre>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;h1&gt;এইটা h1&lt;/h1&gt;
+&lt;p&gt;এখানে &lt;strong&gt;গুরুত্ব&lt;/strong&gt; আর &lt;em&gt;জোরালো&lt;/em&gt; লেখা আছে.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;আইটেম ১&lt;/li&gt;
+  &lt;li&gt;আইটেম ২&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;ফিক্সড ফরম্যাট কোড এরিয়া&lt;/pre&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media">
+      <h2>Media (Image, Picture, Video, Audio)</h2>
+      <div class="grid">
+        <div class="live">
+          <h4>Image & responsive picture</h4>
+          <img src="https://via.placeholder.com/600x200?text=Image" alt="sample" style="max-width:100%;border-radius:6px">
+          <h4 style="margin-top:10px">Video</h4>
+          <video controls width="100%" style="max-width:420px;border-radius:6px">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            আপনার ব্রাউজার ভিডিও সমর্থন করে না।
+          </video>
+          <h4 style="margin-top:10px">Audio</h4>
+          <audio controls>
+            <source src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;img src="photo.jpg" alt="বর্ণনা" width="600"&gt;
+
+&lt;picture&gt;
+  &lt;source srcset="photo.webp" type="image/webp"&gt;
+  &lt;img src="photo.jpg" alt="desc"&gt;
+&lt;/picture&gt;
+
+&lt;video controls&gt;
+  &lt;source src="vid.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="sound.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS -->
+    <section id="forms">
+      <h2>Forms & Input Types</h2>
+      <div class="grid">
+        <div class="live">
+          <form onsubmit="event.preventDefault(); alert('Form submitted!')">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <label>নাম: <input type="text" name="name" required></label>
+              <label>ইমেইল: <input type="email" name="email" required></label>
+            </div>
+            <div style="margin-top:8px">
+              <label>ফাইল আপলোড: <input type="file" accept="image/*" onchange="previewFile(event)"></label>
+              <div id="preview" style="margin-top:8px"></div>
+            </div>
+            <div style="margin-top:8px"><button class="tag" type="submit">Submit</button></div>
+          </form>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;form action="/submit" method="post" enctype="multipart/form-data"&gt;
+  &lt;input type="text" name="name" required /&gt;
+  &lt;input type="email" name="email" required /&gt;
+  &lt;input type="file" name="photo" accept="image/*" /&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <small class="note">Input types: <code class="inline">text</code>, <code class="inline">email</code>, <code class="inline">password</code>, <code class="inline">number</code>, <code class="inline">range</code>, <code class="inline">date</code>, <code class="inline">color</code>, <code class="inline">file</code>, <code class="inline">checkbox</code>, <code class="inline">radio</code>.</small>
+    </section>
+
+    <!-- EMBEDDING -->
+    <section id="embed">
+      <h2>Embedding / External (iframe, object, embed, svg, map)</h2>
+      <div class="grid">
+        <div class="live">
+          <h4>iframe example</h4>
+          <iframe srcdoc="&lt;h3 style='font-family:sans-serif;margin:10px'&gt;Embedded&lt;/h3&gt;&lt;p style='margin:10px;color:#9fb0c8'&gt;Iframe content&lt;/p&gt;" style="width:100%;height:140px;border:1px solid rgba(255,255,255,0.03);border-radius:6px"></iframe>
+
+          <h4 style="margin-top:8px">Inline SVG</h4>
+          <svg width="140" height="60" viewBox="0 0 140 60" style="display:block;margin-top:6px">
+            <rect width="140" height="60" rx="8" fill="#0b3a57"></rect>
+            <text x="70" y="36" fill="#ffd166" font-size="14" text-anchor="middle" font-family="sans-serif">SVG</text>
+          </svg>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;iframe src=&quot;https://example.com&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;&lt;/iframe&gt;
+
+&lt;object data=&quot;file.pdf&quot; type=&quot;application/pdf&quot;&gt;Fallback text&lt;/object&gt;
+
+&lt;svg width=&quot;100&quot; height=&quot;50&quot;&gt;&lt;rect width=&quot;100&quot; height=&quot;50&quot;/&gt;&lt;/svg&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE -->
+    <section id="interactive">
+      <h2>Interactive Elements & Accessibility</h2>
+      <div class="grid">
+        <div class="live">
+          <h4>details / summary</h4>
+          <details><summary style="cursor:pointer">Click expand</summary><p style="margin:8px 0;color:var(--muted)">Hidden content here.</p></details>
+
+          <h4 style="margin-top:8px">dialog (modal)</h4>
+          <button onclick="document.getElementById('d').showModal()">Open Dialog</button>
+          <dialog id="d"><p>Dialog content</p><button onclick="document.getElementById('d').close()">Close</button></dialog>
+
+          <h4 style="margin-top:8px">ARIA & roles</h4>
+          <button role="button" aria-pressed="false" onclick="toggleAria(this)">Toggle ARIA</button>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;details&gt;&lt;summary&gt;More&lt;/summary&gt;Hidden info&lt;/details&gt;
+
+&lt;dialog id=&quot;d&quot;&gt;Modal content&lt;button onclick=&quot;document.getElementById('d').close()&quot;&gt;Close&lt;/button&gt;&lt;/dialog&gt;
+
+&lt;button role=&quot;button&quot; aria-pressed=&quot;false&quot;&gt;Toggle&lt;/button&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <small class="note">Accessibility tips: use <code class="inline">alt</code>, <code class="inline">aria-*</code>, <code class="inline">role</code>, proper heading order, and keyboard support (tabindex).</small>
+    </section>
+
+    <!-- TABLE -->
+    <section id="table">
+      <h2>Tables</h2>
+      <div class="grid">
+        <div class="live">
+          <table border="1" cellpadding="6" style="border-collapse:collapse;width:100%;background:rgba(255,255,255,0.02);border-radius:6px;overflow:hidden">
+            <caption style="text-align:left;color:var(--muted);font-weight:700">Sample table</caption>
+            <thead style="color:var(--muted)"><tr><th>Item</th><th>Price</th></tr></thead>
+            <tbody><tr><td>Apple</td><td>$1</td></tr><tr><td>Banana</td><td>$0.5</td></tr></tbody>
+            <tfoot style="color:var(--muted)"><tr><td>Total</td><td>$1.5</td></tr></tfoot>
+          </table>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;table&gt;
+  &lt;caption&gt;Title&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Col&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTHERS -->
+    <section id="others">
+      <h2>Other important topics (Global attrs, Events, Meta, Web APIs, Web Components, Canvas/SVG)</h2>
+
+      <h3>Global attributes (প্রায় সব ট্যাগে লাগবে)</h3>
+      <div class="grid">
+        <div class="live">
+          <ul>
+            <li><code class="inline">id</code>, <code class="inline">class</code>, <code class="inline">style</code></li>
+            <li><code class="inline">data-*</code> (custom data attributes)</li>
+            <li><code class="inline">hidden</code>, <code class="inline">title</code>, <code class="inline">tabindex</code>, <code class="inline">contenteditable</code></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;div id=&quot;card&quot; class=&quot;card primary&quot; data-user=&quot;123&quot; tabindex=&quot;0&quot;&gt;Content&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Event attributes & JS hooks</h3>
+      <div class="grid">
+        <div class="live">
+          <p>কিছু সাধারণ ইভেন্ট: <code class="inline">onclick</code>, <code class="inline">oninput</code>, <code class="inline">onchange</code>, <code class="inline">onkeydown</code>, <code class="inline">onload</code> ইত্যাদি।</p>
+          <button onclick="alert('clicked')">Click Me (onclick)</button>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;button onclick=&quot;doSomething()&quot;&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+function doSomething(){ alert('action') }
+&lt;/script&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Meta / Head extras (SEO, performance)</h3>
+      <div class="grid">
+        <div class="live">
+          <p>Head-এ রাখার উপকারি ট্যাগ: <code class="inline">&lt;meta charset&gt;</code>, <code class="inline">viewport</code>, <code class="inline">description</code>, <code class="inline">&lt;link rel=&quot;preload&quot;&gt;</code>, <code class="inline">manifest</code>।</p>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;meta name=&quot;description&quot; content=&quot;Site description&quot;&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/fonts/xyz.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot;&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Web APIs (popular)</h3>
+      <div class="grid">
+        <div class="live">
+          <ul>
+            <li>Fetch API — network requests</li>
+            <li>Canvas / WebGL — drawing</li>
+            <li>Geolocation, MediaDevices (getUserMedia), WebRTC</li>
+            <li>LocalStorage, IndexedDB — storage</li>
+            <li>Service Worker — offline/PWA</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>// Fetch example
+fetch('/api/data').then(r =&gt; r.json()).then(data =&gt; console.log(data));
+
+// getUserMedia example
+navigator.mediaDevices.getUserMedia({video:true,audio:false}).then(stream =&gt; { /* show stream */ });</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Web Components (Custom elements)</h3>
+      <div class="grid">
+        <div class="live">
+          <p>Custom element উদাহরণ (ছোট):</p>
+          <my-widget></my-widget>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;script&gt;
+class MyWidget extends HTMLElement{
+  connectedCallback(){ this.innerHTML = '&lt;div&gt;Hello from widget&lt;/div&gt;'; }
+}
+customElements.define('my-widget', MyWidget);
+&lt;/script&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Canvas & SVG</h3>
+      <div class="grid">
+        <div class="live">
+          <canvas id="c2" width="420" height="120" style="max-width:100%;border-radius:6px;border:1px solid rgba(255,255,255,0.03)"></canvas>
+        </div>
+
+        <div>
+          <div class="code-box">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>&lt;canvas id=&quot;c&quot; width=&quot;400&quot; height=&quot;120&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+ctx.fillStyle = '#052B3A'; ctx.fillRect(0,0,c.width,c.height);
+ctx.fillStyle = '#ffd166'; ctx.beginPath(); ctx.arc(60,60,40,0,Math.PI*2); ctx.fill();
+&lt;/script&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3>Deprecated / Avoid</h3>
+      <div class="live" style="margin-top:8px">
+        <p>পুরোনো ট্যাগ: <code class="inline">&lt;font&gt;</code>, <code class="inline">&lt;center&gt;</code>, <code class="inline">&lt;marquee&gt;</code> — এগুলো ব্যবহার করবেন না; CSS দিয়ে পরিবর্তন করুন।</p>
+      </div>
+    </section>
+
+  <footer>
+  <div class="credit">CREATED BY MARUF</div>
+</footer>
+
+<style>
+  footer {
+    background: #111;      
+    padding: 15px 0;      
+    text-align: center;
+  }
+
+  .credit {
+    font-size: 20px;       
+    font-weight: bold;     
+    text-transform: uppercase;
+    color: #ffd700;        
+    letter-spacing: 2px;   
+  }
+</style>
+
+  <script>
+    // Copy function for all code boxes
+    function copyCode(btn){
+      const pre = btn.parentElement.querySelector('pre');
+      if(!pre){ alert('No code found to copy'); return; }
+      const text = pre.innerText;
+      navigator.clipboard.writeText(text).then(()=>{
+        const old = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(()=>btn.innerText = old,1200);
+      }).catch(()=>{ alert('Copy failed — allow clipboard permission or copy manually.'); });
+    }
+
+    // Scroll helper
+    function scrollToId(id){ document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'}); }
+
+    // preview file upload in forms section
+    function previewFile(e){
+      const file = e.target.files[0];
+      const d = document.getElementById('preview');
+      d.innerHTML = '';
+      if(!file) return;
+      if(file.type.startsWith('image/')){
+        const img = document.createElement('img');
+        img.style.maxWidth = '200px'; img.style.borderRadius='6px';
+        img.src = URL.createObjectURL(file);
+        d.appendChild(img);
+      } else {
+        d.textContent = "Selected: " + file.name;
+      }
+    }
+
+    // toggle aria pressed demo
+    function toggleAria(el){
+      const v = el.getAttribute('aria-pressed') === 'true';
+      el.setAttribute('aria-pressed', String(!v));
+      el.textContent = 'aria-pressed: ' + (!v);
+    }
+
+    // canvas demo
+    const c2 = document.getElementById('c2');
+    if(c2 && c2.getContext){
+      const ctx = c2.getContext('2d');
+      const g = ctx.createLinearGradient(0,0,c2.width,0);
+      g.addColorStop(0,'#065a82'); g.addColorStop(1,'#0b2e44');
+      ctx.fillStyle = g; ctx.fillRect(0,0,c2.width,c2.height);
+      ctx.beginPath(); ctx.arc(70,60,40,0,Math.PI*2); ctx.fillStyle = '#ffd166'; ctx.fill();
+      ctx.fillStyle = '#eaf2ff'; ctx.font = '18px sans-serif'; ctx.fillText('Canvas Demo',150,70);
+    }
+
+    // basic custom element
+    class MyWidget extends HTMLElement {
+      connectedCallback(){ if(!this.hasConnected){ this.innerHTML = '<div style="padding:8px;background:rgba(255,255,255,0.03);border-radius:6px">Hello from &lt;my-widget&gt;</div>'; this.hasConnected=true; } }
+    }
+    customElements.define('my-widget', MyWidget);
+
+  </script>
+</body>
+</html>
